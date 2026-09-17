@@ -162,6 +162,16 @@
     .hero-nav{ width:36px; height:36px; font-size:1rem; }
     .hero-nav.prev{ left:0.5rem; }
     .hero-nav.next{ right:0.5rem; }
+
+    /* Mobile-only: the full-bleed cover crop zooms in too tightly on a
+       narrow/tall viewport, so shrink the hero's overall height and logo
+       so more of each GIF is actually visible. Desktop is untouched. */
+    .hero{ min-height:52vh; padding:3rem 1rem 2rem; }
+    .hero-logo{ width:min(300px, 62vw); }
+
+    /* Mobile-only: hide the Cast section — too long to scroll through
+       on a phone for now. Desktop is untouched. */
+    .cast{ display:none; }
   }
 
   .hero-logo{
