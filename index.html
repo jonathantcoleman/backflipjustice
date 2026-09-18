@@ -172,18 +172,22 @@
        narrow/tall viewport, so shrink the hero's overall height and
        reflow so the logo sits in its own solid dark bar up top, with
        the GIF carousel as a moving background just for the button
-       below it. Desktop is untouched. */
+       below it. Desktop is untouched.
+       Note: .hero-content is a shrink-to-fit flex item, so the old
+       "100vw + negative margin" breakout trick for the bar measured
+       itself against the wrong (unpredictable) containing block. Fixed
+       here by making both the content column and the bar a plain 100%
+       width instead — .hero already has zero side padding on mobile,
+       so 100% reaches the true edges with no viewport math needed. */
     .hero{ min-height:0; padding:0 0 1.75rem; justify-content:flex-start; }
+    .hero-content{ width:100%; }
     .hero-logo{ width:min(220px, 55vw); }
     .hero-logo-bar{
-      width:100vw;
-      margin-left:calc(-50vw + 50%);
-      margin-right:calc(-50vw + 50%);
+      width:100%;
       background:var(--ink);
       padding:1rem 0;
       display:flex;
       justify-content:center;
-      margin-bottom:0;
     }
 
     /* Mobile-only: hide the Cast section — too long to scroll through
