@@ -165,33 +165,33 @@
   }
 
   @media (max-width:600px){
-    .hero-nav{ width:36px; height:36px; font-size:1rem; }
+    .hero-nav{ width:36px; height:36px; font-size:1rem; top:320px; transform:none; }
     .hero-nav.prev{ left:0.5rem; }
     .hero-nav.next{ right:0.5rem; }
 
-    /* Mobile-only: the full-bleed cover crop zooms in too tightly on a
-       narrow/tall viewport, so shrink the hero's overall height and
-       reflow so the logo sits in its own solid dark bar up top, with
-       the GIF carousel genuinely starting below it — not just visually
-       covered by it. The bar is pulled out of flow (position:absolute,
-       fixed height) and the slides are pushed down by that exact same
-       height, so the two never overlap. Desktop is untouched (the base
-       .hero-logo-bar{display:contents} rule keeps desktop exactly as
-       it was — the logo simply re-joins the centered flex group there). */
+    /* Mobile-only: stack the above-the-fold section as three distinct
+       blocks — dark logo bar, then a bounded-height GIF carousel, then
+       the button below it (not overlaid on the GIF). The carousel gets
+       an explicit height instead of stretching to fill whatever's left,
+       and everything else (nav arrows, dots, button) is offset to match
+       those exact boundaries so nothing overlaps. Desktop is untouched
+       (the base .hero-logo-bar{display:contents} rule keeps desktop
+       exactly as it was). */
     .hero{ min-height:0; padding:0 0 1.75rem; justify-content:flex-start; }
-    .hero-content{ width:100%; margin-top:70px; }
-    .hero-slide{ top:70px; }
-    .hero-logo{ width:auto; height:40px; max-width:70vw; }
+    .hero-content{ width:100%; margin-top:420px; }
+    .hero-slide{ top:220px; height:200px; }
+    .hero-logo{ width:92vw; height:auto; max-width:420px; }
     .hero-logo-bar{
       display:flex;
       position:absolute;
       top:0; left:0; right:0;
-      height:70px;
+      height:220px;
       background:var(--ink);
       align-items:center;
       justify-content:center;
       z-index:3;
     }
+    .hero-dots{ top:395px; bottom:auto; }
 
     /* Mobile-only: hide the Cast section — too long to scroll through
        on a phone for now. Desktop is untouched. */
