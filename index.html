@@ -165,21 +165,22 @@
   }
 
   @media (max-width:600px){
-    .hero-nav{ width:36px; height:36px; font-size:1rem; top:320px; transform:none; }
+    .hero-nav{ width:36px; height:36px; font-size:1rem; top:395px; transform:none; }
     .hero-nav.prev{ left:0.5rem; }
     .hero-nav.next{ right:0.5rem; }
 
-    /* Mobile-only: stack the above-the-fold section as three distinct
-       blocks — dark logo bar, then a bounded-height GIF carousel, then
-       the button below it (not overlaid on the GIF). The carousel gets
-       an explicit height instead of stretching to fill whatever's left,
-       and everything else (nav arrows, dots, button) is offset to match
-       those exact boundaries so nothing overlaps. Desktop is untouched
-       (the base .hero-logo-bar{display:contents} rule keeps desktop
-       exactly as it was). */
-    .hero{ min-height:0; padding:0 0 1.75rem; justify-content:flex-start; }
-    .hero-content{ width:100%; margin-top:420px; }
-    .hero-slide{ top:220px; height:200px; }
+    /* Mobile-only: dark logo bar up top (fixed height), then a bounded-
+       height GIF carousel below it, with the button overlaid back on
+       top of the carousel (not stacked below it — that left a gap of
+       plain page background between the carousel and the button).
+       .hero gets an explicit min-height covering bar+carousel so the
+       carousel can't get clipped by .hero's own overflow:hidden even
+       though the overlaid button no longer forces that much height on
+       its own. Desktop is untouched (the base .hero-logo-bar{display:
+       contents} rule keeps desktop exactly as it was). */
+    .hero{ min-height:570px; padding:0 0 1.75rem; justify-content:flex-start; }
+    .hero-content{ width:100%; margin-top:320px; }
+    .hero-slide{ top:220px; height:350px; }
     .hero-logo{ width:92vw; height:auto; max-width:420px; }
     .hero-logo-bar{
       display:flex;
@@ -191,7 +192,7 @@
       justify-content:center;
       z-index:3;
     }
-    .hero-dots{ top:395px; bottom:auto; }
+    .hero-dots{ top:540px; bottom:auto; }
 
     /* Mobile-only: hide the Cast section — too long to scroll through
        on a phone for now. Desktop is untouched. */
